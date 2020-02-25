@@ -28,26 +28,23 @@ class TwitterBot:
         bot.get('https://twitter.com/search?q=%23' +
                 hashtag + '&src=typed_query')
         time.sleep(3)
-        for i in range(1, 3):
+        for i in range(1, 1000):
             bot.execute_script(
                 'window.scrollTo(0, document.body.scrollHeight)')
             time.sleep(2)
-            tweetLinks = [i.get_attribute('href')
-                          for i in bot.find_elements_by_xpath("//a[@dir='auto']")]  # Looking for all the element where they have an attribute dir=auto - not the best way but I was in a hurry, lol
-            # now once I have all the hrefs data then I can filter them out to store only the ones with the string "status" in it
+            tweetLinks = [i.get_attribute('href') for i in bot.find_elements_by_xpath("//a[@dir='auto']")]
             filteredLinks = list(filter(lambda x: 'status' in x, tweetLinks))
-            print(filteredLinks)
             for link in filteredLinks:
                 bot.get(link)
                 time.sleep(5)
                 try:
                     bot.find_element_by_xpath("//div[contains(@data-testid, 'follow')]").click()
-                    time.sleep(30)
+                    time.sleep(15)
                 except Exception as ex:
                     print('FAILED')
                     time.sleep(30)
 
-ben = TwitterBot('YourUserName', 'YourPassword')
+ben = TwitterBot('YourUsername', 'YourPassword') # change it to your username and password
 
 ben.login()
-ben.follow('webdevelopment')
+ben.follow('webdevelopment') # change this to whatever hashtag you want to 
