@@ -8,3 +8,7 @@ class TwitterBot:
     self.password = password
     self.bot = webdriver.Firefox()
 
+  def login(self):
+    bot = self.bot
+    bot.get('https://twitter.com')
+    time.sleep(3)
