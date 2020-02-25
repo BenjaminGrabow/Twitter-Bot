@@ -36,17 +36,18 @@ class TwitterBot:
                           for i in bot.find_elements_by_xpath("//a[@dir='auto']")]  # Looking for all the element where they have an attribute dir=auto - not the best way but I was in a hurry, lol
             # now once I have all the hrefs data then I can filter them out to store only the ones with the string "status" in it
             filteredLinks = list(filter(lambda x: 'status' in x, tweetLinks))
+            print(filteredLinks)
             for link in filteredLinks:
                 bot.get(link)
                 time.sleep(5)
                 try:
-                    bot.find_elements_by_xpath("//*[contains(text(), 'Follow)]").click()
-                    time.sleep(20)
-                except Exception as ex:
+                    bot.find_element_by_xpath("//div[contains(@data-testid, 'follow')]").click()
                     time.sleep(30)
+                except Exception as ex:
                     print('FAILED')
+                    time.sleep(30)
 
-ben = TwitterBot('username', 'password')
+ben = TwitterBot('YourUserName', 'YourPassword')
 
 ben.login()
-ben.follow('webdevelopment')
+ben.like_tweet('webdevelopment')
