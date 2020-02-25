@@ -50,4 +50,4 @@ class TwitterBot:
 ben = TwitterBot('YourUserName', 'YourPassword')
 
 ben.login()
-ben.like_tweet('webdevelopment')
+ben.follow('webdevelopment')
