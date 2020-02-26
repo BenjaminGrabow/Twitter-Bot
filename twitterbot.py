@@ -38,7 +38,7 @@ class TwitterBot:
                 bot.get(link)
                 time.sleep(5)
                 try:
-                    bot.find_element_by_xpath("//div[not(contains(@data-testid,'unfollow')) and contains(@data-testid, 'follow')]").click()
+                    bot.find_element_by_xpath("//div[not(contains(@data-testid,'unfollow')) and contains(@data-testid, 'like')]").click()
                     time.sleep(15)
                 except Exception as ex:
                     print('FAILED')
@@ -59,7 +59,7 @@ class TwitterBot:
                 bot.get(link)
                 time.sleep(5)
                 try:
-                    bot.find_element_by_xpath("//div[not(contains(@data-testid,'unfollow')) and contains(@data-testid, 'follow')]").click()
+                    bot.find_element_by_xpath("//div[not(contains(@data-testid,'unlike')) and contains(@data-testid, 'like')]").click()
                     time.sleep(15)
                 except Exception as ex:
                     print('FAILED')
@@ -69,43 +69,43 @@ ben = TwitterBot('username', 'password')
 
 ben.login()
 
-ben.follow('code')
+ben.like('code')
 
 time.sleep(300)
-ben.follow('coding')
+ben.like('coding')
 
 
 time.sleep(600)
-ben.follow('react')
+ben.like('react')
 
 
 time.sleep(900)
-ben.follow('reactnative')
+ben.like('reactnative')
 
 
 time.sleep(1200)
-ben.follow('github')
+ben.like('github')
 
 
 time.sleep(1500)
-ben.follow('opensource')
+ben.like('opensource')
 
 time.sleep(1800)
-ben.follow('computerscience')
+ben.like('computerscience')
 
 
 time.sleep(2100)
-ben.follow('webdevelopment')
+ben.like('webdevelopment')
 
 
 time.sleep(2400)
-ben.follow('lambdaschool')
+ben.like('lambdaschool')
 
 time.sleep(2700)
-ben.follow('algorithm')
+ben.like('algorithm')
 
 time.sleep(3000)
-ben.follow('algorithm')
+ben.like('algorithm')
 
 time.sleep(3300)
-ben.follow('software')
+ben.like('software')
